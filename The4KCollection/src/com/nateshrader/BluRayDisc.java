@@ -9,7 +9,8 @@ public class BluRayDisc {
     private int releaseYear;
     private String mPAARating;
     private int runtimeInMin;
-    private String directorNameFull;
+    private String directorNameFirst;
+    private String directorNameLast;
     private BigDecimal iMDBScore;
     private boolean nateWatched;
     private int nateScoreOutOfTen;
@@ -34,9 +35,11 @@ public class BluRayDisc {
         return runtimeInMin;
     }
 
-    public String getDirectorNameFull() {
-        return directorNameFull;
+    public String getDirectorNameFirst() {
+        return directorNameFirst;
     }
+
+    public String getDirectorNameLast() {return directorNameLast;}
 
     public BigDecimal getiMDBScore() {
         return iMDBScore;
@@ -48,6 +51,11 @@ public class BluRayDisc {
 
     public int getNateScoreOutOfTen() {
         return nateScoreOutOfTen;
+    }
+
+    // Derived attribute for director full name
+    public String getDirectorFullName(){
+        return directorNameFirst + directorNameLast;
     }
 
 
