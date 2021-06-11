@@ -1,0 +1,59 @@
+001|1917|2019|R|119|Sam|Mendes|8.3
+002|Ad Astra|2019|PG-13|123|James|Gray|6.5
+003|Alien: Covenant|2017|R|122|Ridley|Scott|6.4
+004|Arrival|2016|116|PG-13|Denis|Villeneuve|7.9
+005|Annihilation|2018|R|115|Alex|Garland|6.8
+006|Aquaman|2018|PG-13|143|James|Wan|6.9
+007|BlacKkKlansman|2018|R|135|Spike|Lee|7.5
+008|Blade Runner 2049|2017|R|164|Denis|Villeneuve|8.0
+009|Casino Royale|2006|PG-13|144|Marin|Campbell|8.0
+010|Quantum of Solace|2008|PG-13|106|Marc|Foster|6.6
+011|Skyfall|2012|PG-13|143|Sam|Mendes|7.7
+012|Spectre|2015|PG-13|148|Sam|Mendes|6.8
+013|Batman Begins|2005|PG-13|140|Christopher|Nolan|8.2
+014|The Dark Knight|2008|PG-13|152|Christopher|Nolan|9.0
+015|The Dark Knight Rises|2012|PG-13|164|Christopher|Nolan|8.4
+016|Deadpool|2016|R|108|Tim|Miller|8.0
+017|Pokemon Detective Pikachu|2019|PG|104|Rob|Letterman}6.6
+018|Dunkirk|2017|PG-13|106|Christopher|Nolan|7.8
+019|Fury|2014|R|134|David|Ayer|7.6
+020|Fantastic Beasts and Where to Find Them|2016|PG-13|132|David|Yates|7.3
+021|Fantastic Beasts: The Crimes of Grindelwald|2018|PG-13|134|David|Yates|6.5
+022|Ghost in the Shell|1995|TV-MA|83|Mamoru|Oshii|8.0
+023|The Hunger Games|2012|PG-13|142|Gary|Ross|7.2
+024|Inception|2010|PG-13|148|Christopher|Nolan|8.8
+025|Interstellar|2014|PG-13|169|Christopher|Nolan|8.6
+026|John Wick|2014|R|101|Chad|Stahelski|7.4
+027|John Wick: Chapter 2|2017|R|122|Chad|Stahelski|7.5
+028|Joker|2019|R|122|Todd|Phillips|8.4
+029|Knives Out|2019|PG-13|130|Rian|Johnson|7.9
+030|Logan|2017|R|137|James|Mangold|8.1
+031|The Lord of the Rings: The Fellowship of the Ring (Extended)|2001|PG-13|228|Peter|Jackson|8.8
+032|The Lord of the Rings: The Two Towers (Extended)|2002|PG-13|235|Peter|Jackson|8.7
+033|The Lord of the Rings: The Return of the King (Extended)|2003|PG-13|263|Peter|Jackson|8.9
+034|The Matrix|1999|R|136|Lana and Lilly|Wachowski|8.7
+035|Mission Impossible: Fallout|2018|PG-13|147|Christopher|McQuarrie|7.7
+036|Mission Impossible: Rouge Nation|2015|PG-13|131|Christopher|McQuarrie|7.4
+037|Oblivion|2013|PG-13|124|Josepth|Kosinski|7.0
+038|Pan's Labyrinth|2006|R|118|Guillermo|del Toro|8.2
+039|Parasite|2019|R|132|Bong|Joon Ho|8.6
+040|Phantom Thread|2017|R|130|Paul Thomas|Anderson|7.5
+041|Pirates of the Caribbean: Dead Men Tell No Tales|2017|PG-13|129|Joachim, Espen|Ronning, Sandberg|6.5
+042|Ratatouille|2007|G|111|Brad, Jan|Bird, Pinkava|8.0
+043|Red Sparrow|2018|R|140|Francis|Lawrence|6.6
+044|Ready Player One|2018|PG-13|140|Steven|Spielberg|7.4
+045|The Revenant|2015|R|156|Alejandro G.|Inarritu|8.0
+046|The Shallows|2016|PG-13|86|Jaume|Collet-Serra|6.3
+047|Sicario|2015|R|121|Denis|Villeneuve|7.6
+048|Sonic the Hedgehog|2020|PG|99|Jeff|Fowler|6.5
+049|Spider-Man: Into the Spider-Verse|2018|PG|117|Bob, Peter, Rodney|Persichetti, Ramsey, Rothman|8.4
+050|Split|2016|PG-13|117|M. Night|Shyamalan|7.3
+051|Star Trek|2009|PG-13|127|J.J.|Abrams|7.9
+052|Star Trek Into Darkness|2013|PG-13|132|J.J.|Abrams|7.7
+053|Star Trek Beyond|2016|PG-13|122|J.J.|Abrams|7.0
+054|Thor: Ragnarok|2017|PG-13|130|Taika|Waititi7.9
+055|Tomb Raider|2018|PG-13|119|Roar|Uthaug|6.3
+056|Underworld|2003|R|121|Len|Wiseman|7.0
+057|Warcraft|2016|PG-13|123|Duncan|Jones|6.8
+058|War of the Worlds|2005|PG-13|116|Steven|Spielberg|6.5
+059|Zero Dark Thirty|2012|R|157|Kathryn|Bigelow|7.4
