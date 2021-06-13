@@ -1,4 +1,4 @@
-package com.nateshrader;
+package com.nateshrader.main;
 
 import java.math.BigDecimal;
 
@@ -13,7 +13,18 @@ public class BluRayDisc {
     private String directorNameLast;
     private BigDecimal iMDBScore;
     private boolean nateWatched;
-    private int nateScoreOutOfTen;
+
+    public BluRayDisc (int uniqueID, String title, int releaseYear, String mPAARating, int runtimeInMin, String directorNameFirst, String directorNameLast, BigDecimal iMDBScore, boolean nateWatched){
+        this.uniqueID = uniqueID;
+        this.title = title;
+        this.releaseYear = releaseYear;
+        this.mPAARating = mPAARating;
+        this.runtimeInMin = runtimeInMin;
+        this.directorNameFirst = directorNameFirst;
+        this.directorNameLast = directorNameLast;
+        this.iMDBScore = iMDBScore;
+        this.nateWatched = nateWatched;
+    }
 
     public int getUniqueID() {
         return uniqueID;
@@ -49,13 +60,14 @@ public class BluRayDisc {
         return nateWatched;
     }
 
-    public int getNateScoreOutOfTen() {
-        return nateScoreOutOfTen;
-    }
-
     // Derived attribute for director full name
     public String getDirectorFullName(){
         return directorNameFirst + directorNameLast;
+    }
+
+    // toString
+    public String toString() {
+        return uniqueID + ". " + title + " | " + releaseYear + " | " + mPAARating + " | " + runtimeInMin + " minutes" + " | " + "IMDB Score: " + iMDBScore;
     }
 
 
