@@ -3,13 +3,11 @@ package com.nateshrader.main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BRCollection {
 
-    public BRCollection(){
+    public BRCollection() {
         createCollectionFromFile();
     }
 
@@ -32,9 +30,75 @@ public class BRCollection {
         }
     }
 
-    public void displayAllAlphabetically(){
-        for (BluRayDisc brd : bluRays){
-            System.out.println(brd);
+    public void displayAllAlphabetically() {
+        System.out.println("\nHere are all the 4K BluRays in our collection, listed in alphabetical order: \n\n-------------------------\n");
+        int i = 1;
+        for (BluRayDisc brd : bluRays) {
+            System.out.println(i + ". " + brd);
+            i++;
+        }
+    }
+
+    public void displayAllByIMDBRatingDescending() {
+        System.out.println("\nHere are all the 4K BluRays in our collection, listed in order of IMDB's average user score, descending: \n\n-------------------------\n");
+        bluRays.sort(BluRayDisc.BRDIMDBScoreDescendingComparator);
+        int i = 1;
+        for (BluRayDisc brd : bluRays) {
+            System.out.println(i + ". " + brd);
+            i++;
+        }
+
+    }
+
+    public void displayAllByIMDBRatingAscending() {
+        System.out.println("\nHere are all the 4K BluRays in our collection, listed in order of IMDB's average user score, ascending: \n\n-------------------------\n");
+        bluRays.sort(BluRayDisc.BRDIMDBScoreAscendingComparator);
+        int i = 1;
+        for (BluRayDisc brd : bluRays) {
+            System.out.println(i + ". " + brd);
+            i++;
+        }
+
+    }
+
+    public void displayAllByRuntimeDescending() {
+        System.out.println("\nHere are all the 4K BluRays in our collection, listed in order of runtime in minutes, descending: \n\n-------------------------\n");
+        bluRays.sort(BluRayDisc.BRDRuntimeDescendingComparator);
+        int i = 1;
+        for (BluRayDisc brd : bluRays) {
+            System.out.println(i + ". " + brd);
+            i++;
+        }
+    }
+
+    public void displayAllByRuntimeAscending() {
+        System.out.println("\nHere are all the 4K BluRays in our collection, listed in order of runtime in minutes, ascending: \n\n-------------------------\n");
+        bluRays.sort(BluRayDisc.BRDRuntimeAscendingComparator);
+        int i = 1;
+        for (BluRayDisc brd : bluRays) {
+            System.out.println(i + ". " + brd);
+            i++;
+        }
+    }
+
+    public void displayAllByReleaseYearDescending() {
+        System.out.println("\nHere are all the 4K BluRays in our collection, listed in order of runtime in minutes, ascending: \n\n-------------------------\n");
+        bluRays.sort(BluRayDisc.BRDReleaseYearDescendingComparator);
+        int i = 1;
+        for (BluRayDisc brd : bluRays) {
+            System.out.println(i + ". " + brd);
+            i++;
+        }
+    }
+
+    public void displayAllByReleaseYearAscending() {
+        System.out.println("\nHere are all the 4K BluRays in our collection, listed in order of runtime in minutes, ascending: \n\n-------------------------\n");
+        bluRays.sort(BluRayDisc.BRDRelaseYearAscendingComparator);
+        int i = 1;
+        for (BluRayDisc brd : bluRays) {
+            System.out.println(i + ". " + brd);
+            i++;
         }
     }
 }
+

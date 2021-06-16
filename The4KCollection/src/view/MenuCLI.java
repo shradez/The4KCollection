@@ -21,5 +21,14 @@ public class MenuCLI {
         return (String) menu.getChoiceFromOptions(options);
     }
 
+    public void displayGreeting() {
+        System.out.println("\nGOOD DAY!\n\nWelcome to The 4K Blu Ray Collection, where you can view information regarding every single 4K Blu Ray in Nate and Corey's collection." +
+                "\nPlease make a selection from the menu items below to get started.");
+    }
+
+    public void mainMenuOption1Output() {
+        System.out.println("\nYou chose to list all the 4K Blu Rays in the collection. How'd you like those bad boys sorted?");
+    }
+
 
 }

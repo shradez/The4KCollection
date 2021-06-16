@@ -12,8 +12,9 @@ public class Application {
     private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_ALL, MAIN_MENU_OPTION_DISPLAY_BY_GENRE, MAIN_MENU_OPTION_DISPLAY_BY_MPAA_RATING, MAIN_MENU_OPTION_DISPLAY_NATE_UNWATCHED};
     private static final String SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY = "Display Alphabetically";
     private static final String SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING = "Display By Top Rated On IMDB";
-    private static final String SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR_NEWEST_TO_OLDEST = "Display By Release Year Newest To Oldest";
-    private static final String[] SUB_MENU_1_OPTIONS = {SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY, SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING, SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR_NEWEST_TO_OLDEST};
+    private static final String SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME = "Display By Runtime";
+    private static final String SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR = "Display By Release Year";
+    private static final String[] SUB_MENU_1_OPTIONS = {SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY, SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING, SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME, SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR};
     private static final String SUB_MENU_2_OPTION_DRAMA = "Drama";
     private static final String SUB_MENU_2_OPTION_COMEDY = "Comedy";
     private static final String SUB_MENU_2_OPTION_THRILLER_HORROR = "Thriller/Horror";
@@ -32,6 +33,9 @@ public class Application {
     private static final String SUB_MENU_4_OPTION_UNDER_2_AND_HALF_HOURS = "Display All 2.5 Hours Or Shorter";
     private static final String SUB_MENU_4_OPTION_LONGER_THAN_2_AND_HALF_HOURS = "Display All Epics Longer Than 2.5 Hours";
     private static final String[] SUB_MENU_4_OPTIONS = {SUB_MENU_4_OPTION_UNDER_100_MIN, SUB_MENU_4_OPTION_UNDER_2_HOURS, SUB_MENU_4_OPTION_UNDER_2_AND_HALF_HOURS, SUB_MENU_4_OPTION_LONGER_THAN_2_AND_HALF_HOURS};
+    private static final String OPTION_DESC = "Sort in descending order";
+    private static final String OPTION_ASC = "Sort in ascending order";
+    private static final String[] ASC_OR_DESC_OPTIONS = {OPTION_DESC, OPTION_ASC};
 
     private final MenuCLI ui = new MenuCLI();
     private BRCollection collection = new BRCollection();
@@ -42,13 +46,37 @@ public class Application {
     }
 
     public void run() {
+        ui.displayGreeting();
         while(true) {
+            System.out.println("\n---------\nMAIN MENU\n---------");
             String selection = ui.promptForSelection(MAIN_MENU_OPTIONS);
             if (selection.equals(MAIN_MENU_OPTION_DISPLAY_ALL)) {
+                ui.mainMenuOption1Output();
                 // Display sub menu 1
                 String sub1Selection = ui.promptForSelection(SUB_MENU_1_OPTIONS);
                 if (sub1Selection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
                     collection.displayAllAlphabetically();
+                } else if (sub1Selection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
+                    String orderSelection = ui.promptForSelection(ASC_OR_DESC_OPTIONS);
+                    if (orderSelection.equals(OPTION_DESC)) {
+                        collection.displayAllByIMDBRatingDescending();
+                    } else {
+                        collection.displayAllByIMDBRatingAscending();
+                    }
+                } else if (sub1Selection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
+                    String orderSelection = ui.promptForSelection(ASC_OR_DESC_OPTIONS);
+                    if (orderSelection.equals(OPTION_DESC)) {
+                        collection.displayAllByRuntimeDescending();
+                    } else {
+                        collection.displayAllByRuntimeAscending();
+                    }
+                } else if (sub1Selection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
+                    String orderSelection = ui.promptForSelection(ASC_OR_DESC_OPTIONS);
+                    if (orderSelection.equals(OPTION_DESC)) {
+                        collection.displayAllByReleaseYearDescending();
+                    } else {
+                        collection.displayAllByReleaseYearAscending();
+                    }
                 }
             }
         }
