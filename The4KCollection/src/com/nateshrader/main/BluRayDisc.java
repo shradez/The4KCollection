@@ -68,9 +68,21 @@ public class BluRayDisc {
         return directorNameFirst + directorNameLast;
     }
 
+    // Old toString, pipe-delimited but not evenly spaced columns. Fall back to this temporarily if formatted toString breaks something.
     // toString
-    public String toString() {
+    /*public String toString() {
         return title + " | " + releaseYear + " | " + mPAARating + " | " + runtimeInMin + " minutes" + " | " + "IMDB Score: " + iMDBScore;
+    }*/
+
+    public String toString() {
+        String col1 = this.getTitle();
+        int col2 = this.getReleaseYear();
+        String col3 = this.getmPAARating();
+        int col4 = this.getRuntimeInMin();
+        String col5pretext = "IMDb Score: ";
+        BigDecimal col5 = this.getiMDBScore();
+        String pipe = "|";
+        return String.format("%-62s%-3s%-6d%-3s%-7s%-3s%-9s%-3s%-12s%-4.1f\n",col1,pipe,col2,pipe,col3,pipe,col4+" min",pipe,col5pretext,col5);
     }
 
     // Comparator method for sorting by IMDB score, descending

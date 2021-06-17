@@ -78,6 +78,12 @@ public class Application {
                         collection.displayAllByReleaseYearAscending();
                     }
                 }
+            } else if (selection.equals(MAIN_MENU_OPTION_DISPLAY_BY_GENRE)) {
+                ui.mainMenuOption2Output();
+                String sub2selection = ui.promptForSelection(SUB_MENU_2_OPTIONS);
+                if (sub2selection.equals(SUB_MENU_2_OPTION_DRAMA)) {
+
+                }
             }
         }
     }

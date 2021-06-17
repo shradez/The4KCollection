@@ -34,7 +34,8 @@ public class BRCollection {
         System.out.println("\nHere are all the 4K BluRays in our collection, listed in alphabetical order: \n\n-------------------------\n");
         int i = 1;
         for (BluRayDisc brd : bluRays) {
-            System.out.println(i + ". " + brd);
+            String iFormatted = String.format("%02d", i);
+            System.out.println(iFormatted + ". " + brd);
             i++;
         }
     }
@@ -44,7 +45,8 @@ public class BRCollection {
         bluRays.sort(BluRayDisc.BRDIMDBScoreDescendingComparator);
         int i = 1;
         for (BluRayDisc brd : bluRays) {
-            System.out.println(i + ". " + brd);
+            String iFormatted = String.format("%02d", i);
+            System.out.println(iFormatted + ". " + brd);
             i++;
         }
 
@@ -55,7 +57,8 @@ public class BRCollection {
         bluRays.sort(BluRayDisc.BRDIMDBScoreAscendingComparator);
         int i = 1;
         for (BluRayDisc brd : bluRays) {
-            System.out.println(i + ". " + brd);
+            String iFormatted = String.format("%02d", i);
+            System.out.println(iFormatted + ". " + brd);
             i++;
         }
 
@@ -66,7 +69,8 @@ public class BRCollection {
         bluRays.sort(BluRayDisc.BRDRuntimeDescendingComparator);
         int i = 1;
         for (BluRayDisc brd : bluRays) {
-            System.out.println(i + ". " + brd);
+            String iFormatted = String.format("%02d", i);
+            System.out.println(iFormatted + ". " + brd);
             i++;
         }
     }
@@ -76,7 +80,8 @@ public class BRCollection {
         bluRays.sort(BluRayDisc.BRDRuntimeAscendingComparator);
         int i = 1;
         for (BluRayDisc brd : bluRays) {
-            System.out.println(i + ". " + brd);
+            String iFormatted = String.format("%02d", i);
+            System.out.println(iFormatted + ". " + brd);
             i++;
         }
     }
@@ -86,7 +91,8 @@ public class BRCollection {
         bluRays.sort(BluRayDisc.BRDReleaseYearDescendingComparator);
         int i = 1;
         for (BluRayDisc brd : bluRays) {
-            System.out.println(i + ". " + brd);
+            String iFormatted = String.format("%02d", i);
+            System.out.println(iFormatted + ". " + brd);
             i++;
         }
     }
@@ -96,7 +102,8 @@ public class BRCollection {
         bluRays.sort(BluRayDisc.BRDRelaseYearAscendingComparator);
         int i = 1;
         for (BluRayDisc brd : bluRays) {
-            System.out.println(i + ". " + brd);
+            String iFormatted = String.format("%02d", i);
+            System.out.println(iFormatted + ". " + brd);
             i++;
         }
     }

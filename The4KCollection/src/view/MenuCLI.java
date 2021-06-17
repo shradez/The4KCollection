@@ -30,5 +30,8 @@ public class MenuCLI {
         System.out.println("\nYou chose to list all the 4K Blu Rays in the collection. How'd you like those bad boys sorted?");
     }
 
+    public void mainMenuOption2Output() {
+        System.out.println("\nYou chose to browse the collection by genre. What genre are you feelin' right now?");
+    }
 
 }
