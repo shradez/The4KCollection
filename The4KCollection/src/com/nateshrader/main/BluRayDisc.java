@@ -14,8 +14,10 @@ public class BluRayDisc {
     private String directorNameLast;
     private BigDecimal iMDBScore;
     private boolean nateWatched;
+    private String genre1;
+    private String genre2;
 
-    public BluRayDisc(int uniqueID, String title, int releaseYear, String mPAARating, int runtimeInMin, String directorNameFirst, String directorNameLast, BigDecimal iMDBScore, boolean nateWatched) {
+    public BluRayDisc(int uniqueID, String title, int releaseYear, String mPAARating, int runtimeInMin, String directorNameFirst, String directorNameLast, BigDecimal iMDBScore, boolean nateWatched, String genre1, String genre2) {
         this.uniqueID = uniqueID;
         this.title = title;
         this.releaseYear = releaseYear;
@@ -25,6 +27,8 @@ public class BluRayDisc {
         this.directorNameLast = directorNameLast;
         this.iMDBScore = iMDBScore;
         this.nateWatched = nateWatched;
+        this.genre1 = genre1;
+        this.genre2 = genre2;
     }
 
     public int getUniqueID() {
@@ -61,6 +65,14 @@ public class BluRayDisc {
 
     public boolean hasNateWatched() {
         return nateWatched;
+    }
+
+    public String getGenre1() {
+        return genre1;
+    }
+
+    public String getGenre2() {
+        return genre2;
     }
 
     // Derived attribute for director full name

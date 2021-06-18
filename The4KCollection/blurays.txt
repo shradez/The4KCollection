@@ -4,7 +4,7 @@
 004|Arrival|2016|PG-13|116|Denis|Villeneuve|7.9|true|Drama|Sci-Fi
 005|Annihilation|2018|R|115|Alex|Garland|6.8|true|Sci-Fi|Horror
 006|Aquaman|2018|PG-13|143|James|Wan|6.9|true|Action|Fantasy
-007|BlacKkKlansman|2018|R|135|Spike|Lee|7.5|false|Biography|Comedy
+007|BlacKkKlansman|2018|R|135|Spike|Lee|7.5|false|Drama|Comedy
 008|Blade Runner 2049|2017|R|164|Denis|Villeneuve|8.0|true|Sci-Fi|Drama
 009|Casino Royale|2006|PG-13|144|Marin|Campbell|8.0|true|Action|Drama
 010|Quantum of Solace|2008|PG-13|106|Marc|Foster|6.6|true|Action|Drama

@@ -34,4 +34,8 @@ public class MenuCLI {
         System.out.println("\nYou chose to browse the collection by genre. What genre are you feelin' right now?");
     }
 
+    public void genreSelectionOutput() {
+        System.out.println("\nIn what order would you like to view the movies of your selected genre?");
+    }
+
 }
