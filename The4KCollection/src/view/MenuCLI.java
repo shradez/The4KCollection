@@ -10,7 +10,8 @@ public class MenuCLI {
     private static final String MAIN_MENU_OPTION_DISPLAY_BY_GENRE = "Display By Genre";
     private static final String MAIN_MENU_OPTION_DISPLAY_BY_MPAA_RATING = "Display By MPAA Rating";
     private static final String MAIN_MENU_OPTION_DISPLAY_NATE_UNWATCHED = "Display All Unwatched By Nate";
-    private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_ALL, MAIN_MENU_OPTION_DISPLAY_BY_GENRE, MAIN_MENU_OPTION_DISPLAY_BY_MPAA_RATING, MAIN_MENU_OPTION_DISPLAY_NATE_UNWATCHED};
+    private static final String MAIN_MENU_OPTION_EXIT = "Exit";
+    private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_ALL, MAIN_MENU_OPTION_DISPLAY_BY_GENRE, MAIN_MENU_OPTION_DISPLAY_BY_MPAA_RATING, MAIN_MENU_OPTION_DISPLAY_NATE_UNWATCHED, MAIN_MENU_OPTION_EXIT};
     private static final String SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY = "Display Alphabetically";
     private static final String SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING = "Display By Top Rated On IMDB";
     private static final String SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME = "Display By Runtime";
@@ -97,27 +98,27 @@ public class MenuCLI {
         System.out.println("\nYou chose to list all the 4K Blu Rays in the collection. How'd you like those bad boys ordered?");
         String subSelection = promptForSelection(SUB_MENU_1_OPTIONS);
         if (subSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getAllBluRays());
+            bluRays.displayAlphabetically(bluRays.getBluRays());
         } else if (subSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getAllBluRays());
+                bluRays.displayByIMDBRatingDescending(bluRays.getBluRays());
             } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getAllBluRays());
+                bluRays.displayByIMDBRatingAscending(bluRays.getBluRays());
             }
         } else if (subSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getAllBluRays());
+                bluRays.displayByRuntimeDescending(bluRays.getBluRays());
             } else {
-                bluRays.displayByRuntimeAscending(bluRays.getAllBluRays());
+                bluRays.displayByRuntimeAscending(bluRays.getBluRays());
             }
         } else if (subSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getAllBluRays());
+                bluRays.displayByReleaseYearDescending(bluRays.getBluRays());
             } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getAllBluRays());
+                bluRays.displayByReleaseYearAscending(bluRays.getBluRays());
             }
         }
     }
@@ -127,31 +128,31 @@ public class MenuCLI {
         String subselection = promptForSelection(SUB_MENU_2_OPTIONS);
         switch (subselection) {
             case SUB_MENU_2_OPTION_DRAMA:
-                DisplayByGenreDrama();
+                DisplayByGenre("Drama");
                 break;
             case SUB_MENU_2_OPTION_ACTION:
-                DisplayByGenreAction();
+                DisplayByGenre("Action");
                 break;
             case SUB_MENU_2_OPTION_COMEDY:
-                DisplayByGenreComedy();
+                DisplayByGenre("Comedy");
                 break;
             case SUB_MENU_2_OPTION_HORROR:
-                DisplayByGenreHorror();
+                DisplayByGenre("Horror");
                 break;
             case SUB_MENU_2_OPTION_SCI_FI:
-                DisplayByGenreSciFi();
+                DisplayByGenre("Sci-Fi");
                 break;
             case SUB_MENU_2_OPTION_WAR:
-                DisplayByGenreWar();
+                DisplayByGenre("War");
                 break;
             case SUB_MENU_2_OPTION_THRILLER:
-                DisplayByGenreThriller();
+                DisplayByGenre("Thriller");
                 break;
             case SUB_MENU_2_OPTION_FANTASY:
-                DisplayByGenreFantasy();
+                DisplayByGenre("Fantasy");
                 break;
             case SUB_MENU_2_OPTION_ROMANCE:
-                DisplayByGenreRomance();
+                DisplayByGenre("Romance");
                 break;
         }
     }
@@ -161,430 +162,86 @@ public class MenuCLI {
         String subSelection = promptForSelection(SUB_MENU_3_OPTIONS);
         switch (subSelection) {
             case SUB_MENU_3_OPTION_G:
-                DisplayByMPAARatingG();
+                System.out.println("You chose to browse movies rated G. Honestly, there probably aren't a ton of these in our collection, but how do you want them ordered?");
+                DisplayByMPAARating("G");
                 break;
             case SUB_MENU_3_OPTION_PG:
-                DisplayByMPAARatingPG();
+                System.out.println("You chose to browse movies rated PG. Honestly, there probably aren't a ton of these in our collection, but how do you want them ordered?");
+                DisplayByMPAARating("PG");
                 break;
             case SUB_MENU_3_OPTION_PG13:
-                DisplayByMPAARatingPG13();
+                System.out.println("You chose to browse movies rated PG-13. How do you want them ordered?");
+                DisplayByMPAARating("PG-13");
                 break;
             case SUB_MENU_3_OPTION_R:
-                DisplayByMPAARatingR();
+                System.out.println("You chose to browse movies rated R. Let me see some ID, kid. Seriously, though. How do you want them ordered?");
+                DisplayByMPAARating("R");
                 break;
             case SUB_MENU_3_OPTION_UNRATED:
-                DisplayByMPAARatingUnrated();
+                System.out.println("You chose to browse movies that are unrated or have a rating that isn't G, PG, PG-13, or R. Honestly, there probably aren't a ton of these in our collection, but how do you want them ordered?");
+                DisplayByMPAARating("Unrated");
                 break;
         }
     }
 
     public void MainMenuDisplayUnwatchedByNate() {
         System.out.println("\nYou chose to view movies unwatched by Nate. I assume you are probably Nate. Hey, Nate! Your app is looking pretty clean, my guy.");
-        bluRays.displayAlphabetically(bluRays.getUnwatchedByNateBluRays());
+        bluRays.displayAlphabetically(bluRays.getBluRaysUnwatchedByNate());
     }
 
-    public void DisplayByMPAARatingG() {
-        System.out.println("You chose to browse movies rated G. Honestly, there probably aren't a ton of these in our collection, but how do you want them ordered?");
+    public void DisplayByMPAARating(String mPAARating) {
         String gSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
         if (gSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getGBluRays());
+            bluRays.displayAlphabetically(bluRays.getBluRaysByMPAARating(mPAARating));
         } else if (gSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getGBluRays());
+                bluRays.displayByIMDBRatingDescending(bluRays.getBluRaysByMPAARating(mPAARating));
             } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getGBluRays());
+                bluRays.displayByIMDBRatingAscending(bluRays.getBluRaysByMPAARating(mPAARating));
             }
         } else if (gSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getGBluRays());
+                bluRays.displayByRuntimeDescending(bluRays.getBluRaysByMPAARating(mPAARating));
             } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getGBluRays());
+                bluRays.displayByReleaseYearAscending(bluRays.getBluRaysByMPAARating(mPAARating));
             }
         } else if (gSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getGBluRays());
+                bluRays.displayByReleaseYearDescending(bluRays.getBluRaysByMPAARating(mPAARating));
             } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getGBluRays());
+                bluRays.displayByReleaseYearAscending(bluRays.getBluRaysByMPAARating(mPAARating));
             }
         }
     }
 
-    public void DisplayByMPAARatingPG() {
-        System.out.println("You chose to browse movies rated PG. Honestly, there probably aren't a ton of these in our collection, but how do you want them ordered?");
-        String pgSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (pgSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getPgBluRays());
-        } else if (pgSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getPgBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getPgBluRays());
-            }
-        } else if (pgSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getPgBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getPgBluRays());
-            }
-        } else if (pgSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getPgBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getPgBluRays());
-            }
-        }
-    }
-
-    public void DisplayByMPAARatingPG13() {
-        System.out.println("You chose to browse movies rated PG-13. How do you want them ordered?");
-        String pg13SubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (pg13SubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getPg13BluRays());
-        } else if (pg13SubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getPg13BluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getPg13BluRays());
-            }
-        } else if (pg13SubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getPg13BluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getPg13BluRays());
-            }
-        } else if (pg13SubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getPg13BluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getPg13BluRays());
-            }
-        }
-    }
-
-    public void DisplayByMPAARatingR() {
-        System.out.println("You chose to browse movies rated R. Let me see some ID, kid. Seriously, though. How do you want them ordered?");
-        String rSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (rSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getRBluRays());
-        } else if (rSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getRBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getRBluRays());
-            }
-        } else if (rSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getRBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getRBluRays());
-            }
-        } else if (rSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getRBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getRBluRays());
-            }
-        }
-    }
-
-    public void DisplayByMPAARatingUnrated() {
-        System.out.println("You chose to browse movies that are unrated or have a rating that isn't G, PG, PG-13, or R. Honestly, there probably aren't a ton of these in our collection, but how do you want them ordered?");
-        String uSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (uSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getUnratedBluRays());
-        } else if (uSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getUnratedBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getUnratedBluRays());
-            }
-        } else if (uSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getUnratedBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getUnratedBluRays());
-            }
-        } else if (uSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getUnratedBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getUnratedBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreDrama() {
+    public void DisplayByGenre(String genre) {
         genreSelectionOpeningText();
         String dramaSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
         if (dramaSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getDramaBluRays());
+            bluRays.displayAlphabetically(bluRays.getBluRaysByGenre(genre));
         } else if (dramaSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getDramaBluRays());
+                bluRays.displayByIMDBRatingDescending(bluRays.getBluRaysByGenre(genre));
             } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getDramaBluRays());
+                bluRays.displayByIMDBRatingAscending(bluRays.getBluRaysByGenre(genre));
             }
         } else if (dramaSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getDramaBluRays());
+                bluRays.displayByRuntimeDescending(bluRays.getBluRaysByGenre(genre));
             } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getDramaBluRays());
+                bluRays.displayByReleaseYearAscending(bluRays.getBluRaysByGenre(genre));
             }
         } else if (dramaSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
             String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
             if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getDramaBluRays());
+                bluRays.displayByReleaseYearDescending(bluRays.getBluRaysByGenre(genre));
             } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getDramaBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreAction() {
-        genreSelectionOpeningText();
-        String actionSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (actionSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getActionBluRays());
-        } else if (actionSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getActionBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getActionBluRays());
-            }
-        } else if (actionSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getActionBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getActionBluRays());
-            }
-        } else if (actionSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getActionBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getActionBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreComedy() {
-        genreSelectionOpeningText();
-        String comedySubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (comedySubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getComedyBluRays());
-        } else if (comedySubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getComedyBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getComedyBluRays());
-            }
-        } else if (comedySubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getComedyBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getComedyBluRays());
-            }
-        } else if (comedySubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getComedyBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getComedyBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreHorror() {
-        genreSelectionOpeningText();
-        String horrorSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (horrorSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getHorrorBluRays());
-        } else if (horrorSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getHorrorBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getHorrorBluRays());
-            }
-        } else if (horrorSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getHorrorBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getHorrorBluRays());
-            }
-        } else if (horrorSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getHorrorBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getHorrorBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreSciFi() {
-        genreSelectionOpeningText();
-        String sciFiSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (sciFiSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getSciFiBluRays());
-        } else if (sciFiSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getSciFiBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getSciFiBluRays());
-            }
-        } else if (sciFiSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getSciFiBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getSciFiBluRays());
-            }
-        } else if (sciFiSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getSciFiBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getSciFiBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreWar() {
-        genreSelectionOpeningText();
-        String warSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (warSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getWarBluRays());
-        } else if (warSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getWarBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getWarBluRays());
-            }
-        } else if (warSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getWarBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getWarBluRays());
-            }
-        } else if (warSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getWarBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getWarBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreThriller() {
-        genreSelectionOpeningText();
-        String thrillerSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (thrillerSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getThrillerBluRays());
-        } else if (thrillerSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getThrillerBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getThrillerBluRays());
-            }
-        } else if (thrillerSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getThrillerBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getThrillerBluRays());
-            }
-        } else if (thrillerSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getThrillerBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getThrillerBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreFantasy() {
-        genreSelectionOpeningText();
-        String fantasySubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (fantasySubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getDramaBluRays());
-        } else if (fantasySubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getFantasyBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getFantasyBluRays());
-            }
-        } else if (fantasySubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getFantasyBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getFantasyBluRays());
-            }
-        } else if (fantasySubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getFantasyBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getFantasyBluRays());
-            }
-        }
-    }
-
-    public void DisplayByGenreRomance() {
-        genreSelectionOpeningText();
-        String romanceSubSelection = promptForSelection(SUB_MENU_1_OPTIONS);
-        if (romanceSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_ALPHABETICALLY)) {
-            bluRays.displayAlphabetically(bluRays.getRomanceBluRays());
-        } else if (romanceSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_IMDB_RATING)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByIMDBRatingDescending(bluRays.getRomanceBluRays());
-            } else {
-                bluRays.displayByIMDBRatingAscending(bluRays.getRomanceBluRays());
-            }
-        } else if (romanceSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RUNTIME)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByRuntimeDescending(bluRays.getRomanceBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getRomanceBluRays());
-            }
-        } else if (romanceSubSelection.equals(SUB_MENU_1_OPTION_DISPLAY_BY_RELEASE_YEAR)) {
-            String orderSelection = promptForSelection(ASC_OR_DESC_OPTIONS);
-            if (orderSelection.equals(OPTION_DESC)) {
-                bluRays.displayByReleaseYearDescending(bluRays.getRomanceBluRays());
-            } else {
-                bluRays.displayByReleaseYearAscending(bluRays.getRomanceBluRays());
+                bluRays.displayByReleaseYearAscending(bluRays.getBluRaysByGenre(genre));
             }
         }
     }

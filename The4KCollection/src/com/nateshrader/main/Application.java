@@ -26,6 +26,9 @@ public class Application {
                 ui.MainMenuDisplayByMPAARating();
             } else if (selection.equals(ui.getMainMenuOptions()[3])) {
                 ui.MainMenuDisplayUnwatchedByNate();
+            } else if (selection.equals(ui.getMainMenuOptions()[4])) {
+                System.out.println("\nLater!");
+                System.exit(1);
             }
         }
     }

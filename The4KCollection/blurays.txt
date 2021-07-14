@@ -19,7 +19,7 @@
 019|Fury|2014|R|134|David|Ayer|7.6|false|War|Action
 020|Fantastic Beasts and Where to Find Them|2016|PG-13|132|David|Yates|7.3|true|Fantasy|Drama
 021|Fantastic Beasts: The Crimes of Grindelwald|2018|PG-13|134|David|Yates|6.5|true|Fantasy|Drama
-022|Ghost in the Shell|1995|TV-MA|83|Mamoru|Oshii|8.0|false|Sci-Fi|Action
+022|Ghost in the Shell|1995|Unrated|83|Mamoru|Oshii|8.0|false|Sci-Fi|Action
 023|The Hunger Games|2012|PG-13|142|Gary|Ross|7.2|true|Action|Sci-Fi
 024|Inception|2010|PG-13|148|Christopher|Nolan|8.8|true|Sci-Fi|Thriller
 025|Inferno|2016|PG-13|121|Ron|Howard|6.2|true|Action|Drama
